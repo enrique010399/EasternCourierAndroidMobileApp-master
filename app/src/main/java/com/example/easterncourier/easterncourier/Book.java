@@ -74,7 +74,7 @@ public class Book extends AppCompatActivity implements LocationListener {
         CheckPermission();
 
 
-
+        //FirebaseDataBase
         databaseClientRequest = FirebaseDatabase.getInstance().getReference("Client Request");
 
         mButtonChooseImage=findViewById(R.id.uploadPackageImage);
@@ -83,6 +83,8 @@ public class Book extends AppCompatActivity implements LocationListener {
         final EditText receiverName=findViewById(R.id.receiverNameEditText);
         final EditText packageDescription=findViewById(R.id.requestDescription);
         Button submitRequest=findViewById(R.id.submitRequest);
+
+        //FireBaseStorage
         mStorageRef= FirebaseStorage.getInstance().getReference("Client Request");
         mDatabaseRef=databaseClientRequest;
 
@@ -155,32 +157,7 @@ public class Book extends AppCompatActivity implements LocationListener {
             });
         }
 
-        /*if (mImageUri != null){
-            StorageReference fileReference=mStorageRef.child(System.currentTimeMillis() + "." + getFilextension(mImageUri));
-            Task<Uri> uriTask=uploadTask
 
-
-
-
-            //#######
-            fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri downloadUri = task.getResult();
-                    String miUrlOk = downloadUri.toString();
-                    BookUploadImage bookUploadImage=new BookUploadImage("package",taskSnapshot.ge)
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Book.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-
-                }
-            });
-        }
-        else{
-            Toast.makeText(this,"No Image Selected!!!",Toast.LENGTH_SHORT).show();
-        }*/
     }
 
     private void openFileChooser(){

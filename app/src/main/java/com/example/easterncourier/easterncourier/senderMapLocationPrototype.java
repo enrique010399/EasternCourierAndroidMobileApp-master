@@ -36,12 +36,13 @@ public class senderMapLocationPrototype extends FragmentActivity implements OnMa
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(Double.parseDouble(getIntent().getExtras().getString("Latitude")),
+        LatLng senderLocation = new LatLng(Double.parseDouble(getIntent().getExtras().getString("Latitude")),
                 Double.parseDouble(getIntent().getExtras().getString("Longitude")));
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.addMarker(new MarkerOptions().position(senderLocation).title("Pick Up Point"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(senderLocation));
     }
 }

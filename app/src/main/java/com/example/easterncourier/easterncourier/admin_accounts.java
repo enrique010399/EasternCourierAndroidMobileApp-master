@@ -15,13 +15,13 @@ public class admin_accounts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_accounts);
 
-        RecyclerView recyclerView=findViewById(R.id.rv_listAccounts);
+        /*RecyclerView recyclerView=findViewById(R.id.rv_listAccounts);
         List<admin_accounts_item> mListAdminAccounts=new ArrayList<>();
 
         //mListAdminAccounts.add(new admin_accounts_item("You've sent a package for Christian Bautista,","Just now","5:00a.m"));
 
         Adapter_admin_accounts adapter_admin_accounts=new Adapter_admin_accounts(this,mListAdminAccounts);
         recyclerView.setAdapter(adapter_admin_accounts);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));*/
     }
 }
