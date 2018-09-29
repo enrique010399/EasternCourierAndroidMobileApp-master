@@ -107,7 +107,6 @@ public class SignIn extends AppCompatActivity {
                             animateButtonWidth();
                             fadeOutTextAndSetProgressDialog();
                             nextAction();
-
                     }
 
                     else{
@@ -115,6 +114,10 @@ public class SignIn extends AppCompatActivity {
                             Intent intentForAdmin=new Intent(SignIn.this,Admin_dashboard.class);
                             startActivity(intentForAdmin);
                         }
+                        else if(userName.getText().toString().equals("") && password.getText().toString().equals("")){
+
+                        }
+
                         else{
                             AlertDialog.Builder builder=new AlertDialog.Builder(SignIn.this);
                             builder.setMessage("Invalid Username or Password!!!").setNegativeButton("Retry",null)
@@ -219,12 +222,6 @@ public class SignIn extends AppCompatActivity {
                     intent.putExtra("username",userName.getText().toString());
                     intent.putExtra("clientFullName", accountFirstName+" "+accountLastName);
                     SignIn.this.startActivity(intent);
-
-
-
-
-
-
 
 
             }
