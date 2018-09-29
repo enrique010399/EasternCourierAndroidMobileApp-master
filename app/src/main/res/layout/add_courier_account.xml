@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".addCourierAccount">
 
+    <EditText
+        android:id="@+id/courierPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/courierUserName"
+        tools:layout_editor_absoluteX="16dp" />
+
     <Button
         android:id="@+id/courierSubmitBtn"
         android:layout_width="wrap_content"
@@ -63,14 +75,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Enter First Name"
         android:inputType="textPersonName"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/courierPassword" />
 
     <EditText
         android:id="@+id/courierAddress"
@@ -105,4 +117,16 @@
         android:text="Choose Image"
         app:layout_constraintStart_toEndOf="@+id/courierImage"
         app:layout_constraintTop_toBottomOf="@+id/courierPhoneNumber" />
+
+    <EditText
+        android:id="@+id/courierUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Enter UserName"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 </android.support.constraint.ConstraintLayout>

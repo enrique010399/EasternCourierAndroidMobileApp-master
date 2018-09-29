@@ -25,7 +25,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 public class addCourierAccount extends AppCompatActivity {
-    EditText courierFirstName,courierLastName,courierAddress,courierPhoneNumber,courierBirthDate;
+    EditText courierFirstName,courierLastName,courierAddress,courierPhoneNumber,courierBirthDate,courierUserName,courierPassword;
     ImageView courierImage;
     Button chooseCourierImageBtn,courierSubmitBtn;
 
@@ -46,6 +46,10 @@ public class addCourierAccount extends AppCompatActivity {
         courierLastName=findViewById(R.id.courierLastName);
         courierAddress=findViewById(R.id.courierAddress);
         courierPhoneNumber=findViewById(R.id.courierPhoneNumber);
+        courierUserName=findViewById(R.id.courierFirstName);
+        courierPassword=findViewById(R.id.courierPassword);
+
+
         courierImage=findViewById(R.id.courierImage);
         courierBirthDate=findViewById(R.id.courierBirthDate);
 
@@ -77,7 +81,8 @@ public class addCourierAccount extends AppCompatActivity {
                     String id=databaseCourierAccount.push().getKey();
                     addCourierAccountItem addCourierAccountItem1=new addCourierAccountItem(id,courierFirstName.getText().toString(),courierLastName.getText().toString(),
                             courierAddress.getText().toString(),courierBirthDate.getText().toString(),courierPhoneNumber.getText().toString(),
-                            "not set","not set","none",mImageUri+"");
+                            "not set","not set","none",mImageUri+"",courierUserName.getText().toString(),
+                            courierPassword.getText().toString());
                     databaseCourierAccount.child(id).setValue(addCourierAccountItem1);
                     Toast.makeText(addCourierAccount.this,"New Courier Account Added",Toast.LENGTH_LONG).show();
 

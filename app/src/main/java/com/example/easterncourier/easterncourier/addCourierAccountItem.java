@@ -3,7 +3,8 @@ package com.example.easterncourier.easterncourier;
 public class addCourierAccountItem {
 
     String courierId,courierFirstName,courierLastName,courierAddress,courierBirthDate,courierPhoneNumber,
-            courierLocationLatitude,courierLocationLongitude,courierClientList,courierImage;
+            courierLocationLatitude,courierLocationLongitude,courierClientList,courierImage
+            ,courierUserName,courierPassword;
 
 
 
@@ -11,7 +12,8 @@ public class addCourierAccountItem {
 
     }
 
-    public addCourierAccountItem(String courierId, String courierFirstName, String courierLastName, String courierAddress, String courierBirthDate, String courierPhoneNumber, String courierLocationLatitude, String courierLocationLongitude, String courierClientList, String courierImage) {
+    public addCourierAccountItem(String courierId, String courierFirstName, String courierLastName, String courierAddress, String courierBirthDate, String courierPhoneNumber, String courierLocationLatitude, String courierLocationLongitude, String courierClientList, String courierImage
+    ,String courierUserName,String courierPassword) {
         this.courierId = courierId;
         this.courierFirstName = courierFirstName;
         this.courierLastName = courierLastName;
@@ -22,6 +24,9 @@ public class addCourierAccountItem {
         this.courierLocationLongitude = courierLocationLongitude;
         this.courierClientList = courierClientList;
         this.courierImage = courierImage;
+        this.courierUserName = courierUserName;
+        this.courierPassword = courierPassword;
+
     }
 
     public String getCourierId() {
@@ -62,5 +67,13 @@ public class addCourierAccountItem {
 
     public String getCourierImage() {
         return courierImage;
+    }
+
+    public String getCourierUserName() {
+        return courierUserName;
+    }
+
+    public String getCourierPassword() {
+        return courierPassword;
     }
 }

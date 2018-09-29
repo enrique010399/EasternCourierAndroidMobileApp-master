@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -27,19 +28,28 @@ import com.example.easterncourier.easterncourier.databinding.ActivitySignInBindi
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApi;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 public class SignIn extends AppCompatActivity {
+    ArrayList<addCourierAccountItem> list ;
+    DatabaseReference reference;
 
     private ActivitySignInBinding mBinding;
     private static final String TAG = "SignIn";
     private static final int ERROR_DIALOG_REQUEST =9001;
     String accountFirstName;
     String accountLastName;
+    String correct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +57,7 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         mBinding= DataBindingUtil.setContentView(this,R.layout.activity_sign_in);
 
+        list = new ArrayList<addCourierAccountItem>();
 
 
 
@@ -93,6 +104,33 @@ public class SignIn extends AppCompatActivity {
 
     public void load(View view){
 
+
+        reference= FirebaseDatabase.getInstance().getReference().child("Courier Accounts");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                EditText userNameTf=findViewById(R.id.usernameTf);
+                EditText passwordTf=findViewById(R.id.passwordTf);
+                for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                    admin_request_item admin_request_item1= dataSnapshot1.getValue(admin_request_item.class);
+                    if (dataSnapshot1.getValue(addCourierAccountItem.class).getCourierUserName().equals(userNameTf
+                            .getText().toString()) && dataSnapshot1.getValue(addCourierAccountItem.class).getCourierPassword().equals(passwordTf.getText().toString())){
+                        correct="Yes";
+                        Toast.makeText(SignIn.this,"Yes", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        correct="No";
+                        Toast.makeText(SignIn.this,"No", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         final EditText userName=  findViewById(R.id.usernameTf);
         final EditText password=  findViewById(R.id.passwordTf);
         Response.Listener<String> responseListener=new Response.Listener<String>() {
@@ -114,8 +152,9 @@ public class SignIn extends AppCompatActivity {
                             Intent intentForAdmin=new Intent(SignIn.this,Admin_dashboard.class);
                             startActivity(intentForAdmin);
                         }
-                        else if(userName.getText().toString().equals("") && password.getText().toString().equals("")){
-
+                        else if(correct.equals("Yes")){
+                            Intent intentForCourier=new Intent(SignIn.this,courier_Dashboard.class);
+                            startActivity(intentForCourier);
                         }
 
                         else{

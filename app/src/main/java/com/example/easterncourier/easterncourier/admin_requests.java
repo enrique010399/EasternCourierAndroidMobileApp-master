@@ -32,6 +32,8 @@ public class admin_requests extends AppCompatActivity implements Adapter_admin_r
     ArrayList<admin_request_item> list ;
     DatabaseReference reference;
     RecyclerView recyclerView;
+
+
     Adapter_admin_requests adapter_admin_requests;
 
     @Override
@@ -53,6 +55,7 @@ public class admin_requests extends AppCompatActivity implements Adapter_admin_r
                 for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                     admin_request_item admin_request_item1= dataSnapshot1.getValue(admin_request_item.class);
                     list.add(admin_request_item1);
+
 
                 }
                 adapter_admin_requests=new Adapter_admin_requests(admin_requests.this,list);
