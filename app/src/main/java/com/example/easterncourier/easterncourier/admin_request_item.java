@@ -12,12 +12,16 @@ public class admin_request_item {
     String clientFullName;
     String clientDateRequested;
     String clientPackageImage;
+    String requestAssignedCourierId;
+    String requestAssignedCourierUserName;
+    String requestAssignedCourierFullName;
+    String requestFinish;
 
     public admin_request_item(){
 
     }
 
-    public admin_request_item(String requestId, String senderLocationLatitude, String senderLocationLongitude, String receiverLocationLatitude, String receiverLocationLongitude, String receiverName, String requestDescription, String clientUserName, String clientFullName, String clientDateRequested, String clientPackageImage) {
+    public admin_request_item(String requestId, String senderLocationLatitude, String senderLocationLongitude, String receiverLocationLatitude, String receiverLocationLongitude, String receiverName, String requestDescription, String clientUserName, String clientFullName, String clientDateRequested, String clientPackageImage, String requestAssignedCourierId, String requestAssignedCourierUserName, String requestAssignedCourierFullName, String requestFinish) {
         this.requestId = requestId;
         this.senderLocationLatitude = senderLocationLatitude;
         this.senderLocationLongitude = senderLocationLongitude;
@@ -29,6 +33,10 @@ public class admin_request_item {
         this.clientFullName = clientFullName;
         this.clientDateRequested = clientDateRequested;
         this.clientPackageImage = clientPackageImage;
+        this.requestAssignedCourierId = requestAssignedCourierId;
+        this.requestAssignedCourierUserName = requestAssignedCourierUserName;
+        this.requestAssignedCourierFullName = requestAssignedCourierFullName;
+        this.requestFinish = requestFinish;
     }
 
     public String getRequestId() {
@@ -117,5 +125,37 @@ public class admin_request_item {
 
     public void setClientPackageImage(String clientPackageImage) {
         this.clientPackageImage = clientPackageImage;
+    }
+
+    public String getRequestAssignedCourierId() {
+        return requestAssignedCourierId;
+    }
+
+    public void setRequestAssignedCourierId(String requestAssignedCourierId) {
+        this.requestAssignedCourierId = requestAssignedCourierId;
+    }
+
+    public String getRequestAssignedCourierUserName() {
+        return requestAssignedCourierUserName;
+    }
+
+    public void setRequestAssignedCourierUserName(String requestAssignedCourierUserName) {
+        this.requestAssignedCourierUserName = requestAssignedCourierUserName;
+    }
+
+    public String getRequestAssignedCourierFullName() {
+        return requestAssignedCourierFullName;
+    }
+
+    public void setRequestAssignedCourierFullName(String requestAssignedCourierFullName) {
+        this.requestAssignedCourierFullName = requestAssignedCourierFullName;
+    }
+
+    public String getRequestFinish() {
+        return requestFinish;
+    }
+
+    public void setRequestFinish(String requestFinish) {
+        this.requestFinish = requestFinish;
     }
 }

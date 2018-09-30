@@ -17,6 +17,10 @@ public class BookRequest {
     String clientFullName;
     String clientDateRequested;
     String clientPackageImage;
+    String requestAssignedCourierId;
+    String requestAssignedCourierUserName;
+    String requestAssignedCourierFullName;
+    String requestFinish;
 
 
 
@@ -24,7 +28,7 @@ public class BookRequest {
 
     }
 
-    public BookRequest(String requestId, String senderLocationLatitude, String senderLocationLongitude, String receiverLocationLatitude, String receiverLocationLongitude, String receiverName, String requestDescription, String clientUserName, String clientFullName, String clientDateRequested, String clientImage) {
+    public BookRequest(String requestId, String senderLocationLatitude, String senderLocationLongitude, String receiverLocationLatitude, String receiverLocationLongitude, String receiverName, String requestDescription, String clientUserName, String clientFullName, String clientDateRequested, String clientImage, String requestAssignedCourierId, String requestAssignedCourierUserName, String requestAssignedCourierFullName, String requestFinish) {
         this.requestId = requestId;
         this.senderLocationLatitude = senderLocationLatitude;
         this.senderLocationLongitude = senderLocationLongitude;
@@ -36,6 +40,10 @@ public class BookRequest {
         this.clientFullName= clientFullName;
         this.clientDateRequested =clientDateRequested;
         this.clientPackageImage=clientImage;
+        this.requestAssignedCourierId = requestAssignedCourierId;
+        this.requestAssignedCourierUserName = requestAssignedCourierUserName;
+        this.requestAssignedCourierFullName = requestAssignedCourierFullName;
+        this. requestFinish = requestFinish;
     }
 
     public String getRequestId() {
@@ -82,5 +90,19 @@ public class BookRequest {
         return clientPackageImage;
     }
 
+    public String getRequestAssignedCourierId() {
+        return requestAssignedCourierId;
+    }
 
+    public String getRequestAssignedCourierUserName() {
+        return requestAssignedCourierUserName;
+    }
+
+    public String getRequestAssignedCourierFullName() {
+        return requestAssignedCourierFullName;
+    }
+
+    public String getRequestFinish() {
+        return requestFinish;
+    }
 }

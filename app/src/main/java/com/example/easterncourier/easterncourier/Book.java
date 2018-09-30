@@ -109,7 +109,7 @@ public class Book extends AppCompatActivity implements LocationListener {
                     System.out.println(formatter.format(date));
                     String id=databaseClientRequest.push().getKey();
                     BookRequest bookRequest=new BookRequest(id,tvLati,tvLongi,"none","none",receiverName.getText().toString(),packageDescription.getText().toString(),getIntent().getExtras().getString("username"),
-                            getIntent().getExtras().getString("clientFullName"), formatter.format(date)+"",mImageUri+"");
+                            getIntent().getExtras().getString("clientFullName"), formatter.format(date)+"",mImageUri+"","Not Assign","Not Assign","Not Assign","Not Yet");
                     databaseClientRequest.child(id).setValue(bookRequest);
                     Toast.makeText(Book.this,"Request Sent",Toast.LENGTH_LONG).show();
 

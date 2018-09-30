@@ -26,7 +26,6 @@ public class addCourierAccountItem {
         this.courierImage = courierImage;
         this.courierUserName = courierUserName;
         this.courierPassword = courierPassword;
-
     }
 
     public String getCourierId() {

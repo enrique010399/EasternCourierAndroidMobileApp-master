@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class admin_request_details extends AppCompatActivity {
     TextView requestIdTv, senderNameTv, receiverNameTv, dateRequestedTv, packageDescriptiontv;
-    Button viewPackageImageBtn, viewSenderLocationBtn, viewreceiverLocationBtn;
+    Button viewPackageImageBtn, viewSenderLocationBtn, viewreceiverLocationBtn,assignCourierBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +24,14 @@ public class admin_request_details extends AppCompatActivity {
         viewPackageImageBtn=findViewById(R.id.showPackageImageBtn);
         viewSenderLocationBtn=findViewById(R.id.showSenderLocationBtn);
         viewreceiverLocationBtn=findViewById(R.id.showReceiverLocationBtn);
+        assignCourierBtn=findViewById(R.id.assignCourierBtn);
 
         requestIdTv.setText(getIntent().getExtras().getString("Request Id"));
         senderNameTv.setText(getIntent().getExtras().getString("Sender Name"));
         receiverNameTv.setText(getIntent().getExtras().getString("Receiver Name"));
         dateRequestedTv.setText(getIntent().getExtras().getString("Date Requested"));
         packageDescriptiontv.setText(getIntent().getExtras().getString("Package Description"));
+
 
         viewSenderLocationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +43,15 @@ public class admin_request_details extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        assignCourierBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(admin_request_details.this,admin_choose_courier.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 

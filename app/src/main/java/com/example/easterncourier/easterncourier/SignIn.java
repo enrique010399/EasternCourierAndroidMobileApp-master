@@ -116,11 +116,11 @@ public class SignIn extends AppCompatActivity {
                     if (dataSnapshot1.getValue(addCourierAccountItem.class).getCourierUserName().equals(userNameTf
                             .getText().toString()) && dataSnapshot1.getValue(addCourierAccountItem.class).getCourierPassword().equals(passwordTf.getText().toString())){
                         correct="Yes";
-                        Toast.makeText(SignIn.this,"Yes", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(SignIn.this,"Yes", Toast.LENGTH_LONG).show();
                     }
                     else{
                         correct="No";
-                        Toast.makeText(SignIn.this,"No", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(SignIn.this,"No", Toast.LENGTH_LONG).show();
                     }
 
                 }
